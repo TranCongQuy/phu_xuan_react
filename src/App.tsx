@@ -1,15 +1,21 @@
-// App.tsx — thành phần gốc, tập hợp các thành phần con
+// App.tsx — trang chủ phu-xuan-react v0.1
+// Buổi 2 · INT.7.18 — Web FrontEnd nâng cao
 
 import Header from './components/Header'
+import WelcomeBanner from './components/WelcomeBanner'
+import PostCard from './components/PostCard'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <main>
-        <p>Nội dung chính sẽ được xây dựng ở các buổi sau.</p>
+        <WelcomeBanner />
+        <PostCard />
       </main>
-    </div>
+      <Footer />
+    </>
   )
 }
 
