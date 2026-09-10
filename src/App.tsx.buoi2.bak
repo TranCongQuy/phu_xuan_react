@@ -1,9 +1,3 @@
-import { formatDate, toSlug } from './utils/string-utils'
-
-// Thêm tạm vào trong hàm App() để kiểm tra:
-console.log('Hôm nay:', formatDate(new Date()))
-console.log('Slug:', toSlug('Trang chủ phu-xuan-react'))
-
 function App() {
   return (
     <div>
