@@ -1,58 +1,56 @@
-// App.tsx — Lab 2 Buổi 3: đọc biến môi trường Vite
+import { formatDate, toSlug } from './utils'
+import { APP_NAME } from './constants'
+import type { Post } from './types'
 
-// Đọc biến môi trường — Vite thay thế các dòng này bằng giá trị thật lúc build
-const apiUrl = import.meta.env.VITE_API_BASE_URL
-const appTitle = import.meta.env.VITE_APP_TITLE
-const version = import.meta.env.VITE_APP_VERSION
+// Dữ liệu mẫu tạm — sẽ thay bằng API thật từ Buổi 17
+const samplePost: Post = {
+  id: 1,
+  title: 'Giới thiệu React và hệ sinh thái hiện đại',
+  excerpt:
+    'Bài viết đầu tiên của phu-xuan-react giới thiệu các khái niệm cốt lõi.',
+  content: 'Nội dung đầy đủ sẽ được tải từ API...',
+  authorId: 1,
+  publishedAt: new Date().toISOString(),
+  tags: ['react', 'javascript', 'frontend'],
+}
 
-// Biến môi trường đặc biệt của Vite (luôn có sẵn)
-const isDev = import.meta.env.DEV
-const isProd = import.meta.env.PROD
-const mode = import.meta.env.MODE
-
-function App() {
+export default function App() {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>
-        {appTitle} — v{version}
-      </h1>
+    <div
+      style={{
+        padding: '2rem',
+        fontFamily: 'sans-serif',
+        maxWidth: '800px',
+      }}
+    >
+      <h1>{APP_NAME}</h1>
       <hr />
-      <h2>Thông tin môi trường</h2>
-      <table border={1} cellPadding={8}>
-        <tbody>
-          <tr>
-            <td>API URL</td>
-            <td>
-              <code>{apiUrl}</code>
-            </td>
-          </tr>
-          <tr>
-            <td>Chế độ</td>
-            <td>
-              <code>{mode}</code>
-            </td>
-          </tr>
-          <tr>
-            <td>Đang phát triển?</td>
-            <td>{isDev ? '✓ Có' : '✗ Không'}</td>
-          </tr>
-          <tr>
-            <td>Đang production?</td>
-            <td>{isProd ? '✓ Có' : '✗ Không'}</td>
-          </tr>
-        </tbody>
-      </table>
-      <hr />
-      <h2>Kiểm tra bảo mật</h2>
-      <p>
-        DATABASE_URL (không có VITE_):{' '}
-        <code>{String(import.meta.env.DATABASE_URL)}</code>
-      </p>
-      <p style={{ color: 'green' }}>
-        Nếu thấy 'undefined' ở trên → Vite đã bảo vệ biến bí mật đúng cách ✓
-      </p>
+      <article>
+        <h2>{samplePost.title}</h2>
+        <p style={{ color: 'gray' }}>
+          Đăng ngày: {formatDate(samplePost.publishedAt)}
+        </p>
+        <p>{samplePost.excerpt}</p>
+        <p>
+          Slug URL: <code>/{toSlug(samplePost.title)}</code>
+        </p>
+        <div>
+          Tags:{' '}
+          {samplePost.tags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                marginRight: 8,
+                background: '#eee',
+                padding: '2px 8px',
+                borderRadius: 4,
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </article>
     </div>
   )
 }
-
-export default App
