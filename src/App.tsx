@@ -1,11 +1,10 @@
 function App() {
   return (
-    <div>
-      <h1>phu-xuan-react</h1>
-      <p>Dự án xuyên suốt học phần Web FrontEnd nâng cao</p>
-      <p>Trường Đại học Phú Xuân — Khoa Công nghệ thông tin</p>
-      <p>Sinh viên: Trần Công Quý </p>
-    </div>
+    <>
+      <h1 style={{ color: 'teal', fontSize: 28 }}>Phòng thí nghiệm JSX</h1>
+      <p>Buổi 4</p>
+      <img src="https://placehold.co/80x80" className="avatar" />
+    </>
   )
 }
 
