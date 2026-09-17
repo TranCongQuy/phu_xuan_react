@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import StarRating from './StarRating'
 
 interface AttractionCardProps {
   name: string
@@ -31,6 +32,7 @@ function AttractionCard({
       <h3>{name}</h3>
       <p>{description}</p>
       <span className="attraction-card__rating">⭐ {rating}</span>
+      <StarRating />
     </div>
   )
 }
