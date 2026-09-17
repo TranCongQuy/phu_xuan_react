@@ -22,12 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-dist
+
+# Biến môi trường
 .env
 .env.local
 .env.*.local
-*.swp
-# File backup cá nhân — không đẩy lên Git
+
+# File backup
 *.bak
 *.old
 *.tmp

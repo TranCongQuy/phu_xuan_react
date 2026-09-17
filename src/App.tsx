@@ -1,18 +1,30 @@
-import { APP_NAME } from './constants'
-import PostList from './features/posts/PostList'
+import DiaDiem1 from './components/DiaDiem1'
+import DiaDiem2 from './components/DiaDiem2'
+import DiaDiem3 from './components/DiaDiem3'
+import { NhanTrangThai, demTongSoDiaDiem } from './components/TienIch'
 
-export default function App() {
+function App() {
+  const danhSachTen = [
+    'Đại Nội Huế',
+    'Chợ Đông Ba',
+    'Cầu Tràng Tiền',
+    'Sông Hương',
+  ]
+  const gioHienTaiLa8Gio = true // giả lập giờ hiện tại
+
   return (
-    <div
-      style={{
-        padding: '2rem',
-        fontFamily: 'sans-serif',
-        maxWidth: '800px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>{APP_NAME}</h1>
-      <PostList />
+    <div className="trang-chu">
+      <h1>Danh sách địa điểm — phu-xuan-react</h1>
+      <p>
+        Tổng số địa điểm: {demTongSoDiaDiem(danhSachTen)} —{' '}
+        <NhanTrangThai dangMoCua={gioHienTaiLa8Gio} />
+      </p>
+
+      <DiaDiem1 />
+      <DiaDiem2 />
+      <DiaDiem3 />
     </div>
   )
 }
+
+export default App
