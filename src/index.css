@@ -1,111 +1,714 @@
+/* =============================================================
+   PHU-XUAN-REACT — Global Stylesheet
+   Theme: Ocean-depth (navy + teal + amber)
+   Style cho toàn bộ component từ Buổi 4 → Buổi 6
+   ============================================================= */
+
+/* ---------- 1. RESET & VARIABLES ---------- */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --navy: #1b2a4a;
+  --navy-light: #2d4270;
+  --teal: #0f6e6a;
+  --teal-light: #14a09a;
+  --amber: #b8860b;
+  --amber-light: #f0b429;
+  --crimson: #dc143c;
+  --green: #16a34a;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-500: #64748b;
+  --gray-700: #334155;
+  --gray-900: #0f172a;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.15);
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family:
+    'Inter',
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2f1 100%);
+  color: var(--gray-900);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 2. TYPOGRAPHY ---------- */
 h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+h2,
+h3,
+h4 {
+  color: var(--navy);
+  margin-top: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  font-size: 1.5rem;
+  color: var(--teal);
+  border-bottom: 2px solid var(--gray-200);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
 }
-p {
+
+h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- 3. BUTTONS ---------- */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--gray-300);
+  background: #fff;
+  color: var(--gray-700);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+button:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover {
+  border-color: var(--gray-300);
+  color: var(--gray-700);
+  box-shadow: none;
+}
+
+/* Button primary (nút chính) */
+.btn-primary,
+button.btn-primary {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- 4. INPUTS ---------- */
+input[type='text'],
+input[type='search'],
+input[type='number'],
+input[type='email'],
+input[type='tel'],
+input[type='date'],
+textarea,
+select {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--gray-900);
+  transition: var(--transition);
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(15, 110, 106, 0.15);
+}
+
+/* ---------- 5. APP CONTAINER ---------- */
+.app,
+.trang-chu {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ---------- 6. HEADER ---------- */
+header {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--gray-500);
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- 7. ATTRACTION CARD (Buổi 5) ---------- */
+.attraction-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.attraction-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.attraction-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal) 0%, var(--amber) 100%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.attraction-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--teal-light);
+}
+
+.attraction-card:hover::before {
+  opacity: 1;
+}
+
+.attraction-card h3 {
+  color: var(--navy);
+  font-size: 1.35rem;
+  margin: 0.5rem 0;
+}
+
+.attraction-card p {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.attraction-card__badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.attraction-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #fff7e6;
+  color: var(--amber);
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Nút yêu thích */
+.attraction-card__favorite {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #fff;
+  border: 1.5px solid var(--gray-200);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.attraction-card__favorite:hover {
+  border-color: var(--crimson);
+  color: var(--crimson);
+  transform: translateY(-1px) scale(1.05);
+}
+
+.attraction-card__favorite.is-active {
+  background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%);
+  border-color: var(--crimson);
+  color: var(--crimson);
+  font-weight: 600;
+}
+
+/* ---------- 8. CATEGORY TABS (Buổi 5) ---------- */
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.category-tabs button {
+  border: none;
+  background: transparent;
+  color: var(--gray-500);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+}
+
+.category-tabs button:hover {
+  background: var(--gray-100);
+  color: var(--teal);
+  transform: none;
+  box-shadow: none;
+}
+
+.category-tabs button.is-active {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.category-tabs button.is-active:hover {
+  color: #fff;
+}
+
+/* ---------- 9. STAR RATING (Buổi 5) ---------- */
+.star-rating {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0;
+}
+
+.star-rating .star {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: var(--gray-300);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.star-rating .star:hover {
+  transform: scale(1.2);
+  color: var(--amber-light);
+}
+
+.star-rating p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--gray-500);
+}
+
+/* ---------- 10. TICKET COUNTER (Buổi 5) ---------- */
+.ticket-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  border: 1px solid var(--gray-200);
+}
+
+.ticket-counter button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50%;
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.ticket-counter button:hover {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.ticket-counter > span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  min-width: 2rem;
+  text-align: center;
+}
+
+.ticket-counter > p {
+  margin: 0 0 0 auto;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+/* ---------- 11. LUOT XEM DAI NOI (Buổi 6) ---------- */
+.the-luot-xem {
+  background: linear-gradient(135deg, #fff 0%, #e0f2f1 100%);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--teal-light);
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.the-luot-xem h3 {
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.the-luot-xem p {
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 1.1rem;
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* ---------- 12. THE DIA DANH (Buổi 6 Lab 4) ---------- */
+.the-dia-danh {
+  background: #fff;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  transition: var(--transition);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.the-dia-danh:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.the-dia-danh h4 {
+  margin: 0 0 0.25rem;
+  color: var(--navy);
+}
+
+.the-dia-danh.dang-chon {
+  border-color: var(--teal);
+  background: linear-gradient(135deg, #f0fdfa 0%, #e0f2f1 100%);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- 13. THE MO RONG (Buổi 7 Lab 3) ---------- */
+.luoi-the {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  margin-top: 1rem;
+}
+
+.the-mo-rong {
+  background: #fff;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.the-mo-rong:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.the-mo-rong.dang-mo {
+  border-color: var(--amber);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  box-shadow: var(--shadow-md);
+}
+
+.the-mo-rong h3 {
+  margin: 0 0 0.25rem;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+/* ---------- 14. FORM TIM MON AN (Buổi 6 Lab 5) ---------- */
+.form-tim {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.form-tim input {
+  flex: 1;
+}
+
+.goi-y {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+.goi-y button {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  background: var(--gray-100);
+  border-color: var(--gray-200);
+  border-radius: 999px;
+}
+
+.goi-y button:hover {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+/* ---------- 15. DS MON AN ---------- */
+.ds-mon,
+.ds-mon-yeu-thich {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.ds-mon li {
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ds-mon li:hover {
+  border-color: var(--teal);
+  transform: translateX(4px);
+}
+
+.ds-mon li small {
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ---------- 16. THONG KE ---------- */
+.thong-ke {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  padding: 0.75rem 1rem;
+  background: var(--gray-50);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius-sm);
+  margin: 1rem 0;
+}
+
+/* ---------- 17. LAB SECTION (Buổi 7) ---------- */
+.lab {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.lab h2 {
+  color: var(--teal);
+  font-size: 1.25rem;
+  border-bottom: 2px solid var(--gray-200);
+  padding-bottom: 0.5rem;
+}
+
+/* ---------- 18. STUDENT CARD (Buổi 5 Lab 2) ---------- */
+.student-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  max-width: 500px;
+  margin: 2rem auto;
+  border-top: 4px solid var(--teal);
+}
+
+.student-card h2 {
+  color: var(--navy);
+  font-size: 1.5rem;
+  border: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.student-card p {
+  margin: 0.5rem 0;
+  color: var(--gray-700);
+}
+
+/* ---------- 19. FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--gray-200);
+  margin-top: 3rem;
+}
+
+footer a {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 20. SCROLLBAR ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal);
+}
+
+/* ---------- 21. RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  .app,
+  .trang-chu {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .luoi-the {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-counter {
+    flex-wrap: wrap;
+  }
+
+  .ticket-counter > p {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .attraction-card {
+    animation: fadeInUp 0.4s ease-out backwards;
+  }
+
+  .attraction-card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .attraction-card:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .attraction-card:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .attraction-card:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+  .attraction-card:nth-child(5) {
+    animation-delay: 0.25s;
+  }
 }
