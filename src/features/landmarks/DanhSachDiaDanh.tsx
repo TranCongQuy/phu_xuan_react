@@ -1,17 +1,21 @@
 import { useState, useMemo, useCallback } from 'react'
 import TheDiaDanh, { type DiaDanh } from './TheDiaDanh'
 import danhSachDiaDanh from '../../data/dia-danh.json'
+import useDebounce from '../../hooks/useDebounce'
 
 function DanhSachDiaDanh() {
   const [boLoc, setBoLoc] = useState('')
   const [yeuThich, setYeuThich] = useState<number[]>([])
 
+  // Áp dụng debounce: chỉ lấy giá trị sau khi ngừng gõ 300ms
+  const boLocDaTre = useDebounce(boLoc, 300)
+
   const ketQuaLoc = useMemo(() => {
-    console.log('Đang lọc lại danh sách…')
+    console.log('Đang lọc theo từ khoá:', boLocDaTre)
     return (danhSachDiaDanh as DiaDanh[]).filter((dd) =>
-      dd.ten.toLowerCase().includes(boLoc.toLowerCase()),
+      dd.ten.toLowerCase().includes(boLocDaTre.toLowerCase()),
     )
-  }, [boLoc])
+  }, [boLocDaTre])
 
   const themYeuThich = useCallback((id: number) => {
     setYeuThich((prev) =>
