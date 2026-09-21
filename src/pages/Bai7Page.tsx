@@ -3,6 +3,7 @@ import ThuSuKien from '../components/Bai7/ThuSuKien'
 import DanhSachDiaDanh from '../components/Bai7/DanhSachDiaDanh'
 import KhamPhaDiaDanh from '../components/Bai7/KhamPhaDiaDanh'
 import LuotThichMonAn from '../components/Bai7/LuotThichMonAn'
+import TimMonAnHue from '../components/Bai7/TimMonAnHue'
 
 export default function Bai7Page() {
   return (
@@ -12,6 +13,7 @@ export default function Bai7Page() {
       <DanhSachDiaDanh />
       <KhamPhaDiaDanh />
       <LuotThichMonAn />
+      <TimMonAnHue />
     </main>
   )
 }
