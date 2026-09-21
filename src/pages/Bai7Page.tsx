@@ -4,6 +4,7 @@ import DanhSachDiaDanh from '../components/Bai7/DanhSachDiaDanh'
 import KhamPhaDiaDanh from '../components/Bai7/KhamPhaDiaDanh'
 import LuotThichMonAn from '../components/Bai7/LuotThichMonAn'
 import TimMonAnHue from '../components/Bai7/TimMonAnHue'
+import MonAnYeuThich from '../components/Bai7/MonAnYeuThich'
 
 export default function Bai7Page() {
   return (
@@ -14,6 +15,7 @@ export default function Bai7Page() {
       <KhamPhaDiaDanh />
       <LuotThichMonAn />
       <TimMonAnHue />
+      <MonAnYeuThich />
     </main>
   )
 }
