@@ -1,5 +1,9 @@
-import Bai7Page from './pages/Bai7Page'
+import FormThemDiaDiem from './features/dia-diem/FormThemDiaDiem'
 
 export default function App() {
-  return <Bai7Page />
+  return (
+    <div style={{ padding: '2rem', minHeight: '100vh' }}>
+      <FormThemDiaDiem />
+    </div>
+  )
 }
